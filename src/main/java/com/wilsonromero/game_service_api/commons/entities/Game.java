@@ -1,4 +1,4 @@
-package com.wilsonromero.game_service_api.entities;
+package com.wilsonromero.game_service_api.commons.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
