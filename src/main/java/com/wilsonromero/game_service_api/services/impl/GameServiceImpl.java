@@ -1,8 +1,10 @@
 package com.wilsonromero.game_service_api.services.impl;
 
 import com.wilsonromero.game_service_api.commons.entities.Game;
+import com.wilsonromero.game_service_api.commons.exceptions.GameException;
 import com.wilsonromero.game_service_api.repositories.GameRepository;
 import com.wilsonromero.game_service_api.services.IGameService;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,6 +24,6 @@ public class GameServiceImpl implements IGameService {
     @Override
     public Game getGameById(Long id) {
         return gameRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Game not found"));
+                .orElseThrow(() -> new GameException(HttpStatus.NOT_FOUND,"Game not found"));
     }
 }
