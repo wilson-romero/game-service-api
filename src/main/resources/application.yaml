@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/game-db
     username: user
-    password: peg(ef%6esf??d$
+    password: insecure-password
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
