@@ -40,4 +40,10 @@ public class GameControllerImpl implements IGameApi {
         Game updatedGame = gameService.updateGame(id, game);
         return ResponseEntity.ok(updatedGame);
     }
+
+    @Override
+    public ResponseEntity<Void> deleteGame(Long id) {
+        gameService.deleteGame(id);
+        return ResponseEntity.noContent().build();
+    }
 }

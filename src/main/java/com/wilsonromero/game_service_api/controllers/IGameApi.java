@@ -26,4 +26,7 @@ public interface IGameApi {
 
     @PutMapping("/{id}")
     ResponseEntity<Game> updateGame(@PathVariable Long id, @RequestBody Game game);
+
+    @DeleteMapping("/{id}")
+    ResponseEntity<Void> deleteGame(@PathVariable Long id);
 }

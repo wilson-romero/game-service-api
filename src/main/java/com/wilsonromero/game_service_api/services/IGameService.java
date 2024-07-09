@@ -9,4 +9,5 @@ public interface IGameService {
     Game getGameById(Long id);
     Page<Game> getGames(int page, int size, String[] sort);
     Game updateGame(Long id, Game game);
+    void deleteGame(Long id);
 }

@@ -51,4 +51,12 @@ public class GameServiceImpl implements IGameService {
         existingGame.setName(game.getName());
         return gameRepository.save(existingGame);
     }
+
+    @Override
+    public void deleteGame(Long id) {
+        Game existingGame = getGameById(id);
+        if (existingGame != null){
+            gameRepository.deleteById(id);
+        }
+    }
 }
