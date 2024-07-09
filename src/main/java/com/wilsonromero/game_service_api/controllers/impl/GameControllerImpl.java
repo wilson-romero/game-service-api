@@ -34,4 +34,10 @@ public class GameControllerImpl implements IGameApi {
         Page<Game> games = gameService.getGames(page, size, sort);
         return ResponseEntity.ok(games);
     }
+
+    @Override
+    public ResponseEntity<Game> updateGame(Long id, Game game) {
+        Game updatedGame = gameService.updateGame(id, game);
+        return ResponseEntity.ok(updatedGame);
+    }
 }

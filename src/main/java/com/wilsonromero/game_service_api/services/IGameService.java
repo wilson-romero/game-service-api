@@ -8,4 +8,5 @@ public interface IGameService {
     Game createGame(Game game);
     Game getGameById(Long id);
     Page<Game> getGames(int page, int size, String[] sort);
+    Game updateGame(Long id, Game game);
 }

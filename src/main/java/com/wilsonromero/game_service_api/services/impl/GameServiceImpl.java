@@ -44,4 +44,11 @@ public class GameServiceImpl implements IGameService {
             throw new GameException(HttpStatus.BAD_REQUEST, "Invalid sort criteria: " + e.getMessage());
         }
     }
+
+    @Override
+    public Game updateGame(Long id, Game game) {
+        Game existingGame = getGameById(id);
+        existingGame.setName(game.getName());
+        return gameRepository.save(existingGame);
+    }
 }

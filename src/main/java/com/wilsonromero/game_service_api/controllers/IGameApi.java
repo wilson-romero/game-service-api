@@ -23,4 +23,7 @@ public interface IGameApi {
             @Parameter(description = "Sorting criteria in the format: property:(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.")
             @RequestParam(name = "sort", required = false) String[] sort
     );
+
+    @PutMapping("/{id}")
+    ResponseEntity<Game> updateGame(@PathVariable Long id, @RequestBody Game game);
 }
