@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Slf4j
 public class ExceptionHandlerController {
     @ExceptionHandler(GameException.class)
-    ResponseEntity<ErrorResponse> handleError(GameException e) {
+    ResponseEntity<ErrorResponse> handleGameError(GameException e) {
         log.error("GameException: ",e);
         var errorResponse = ErrorResponse.builder()
                 .codeStatus(e.getHttpStatus().value())
