@@ -54,9 +54,6 @@ public class GameServiceImpl implements IGameService {
 
     @Override
     public void deleteGame(Long id) {
-        Game existingGame = getGameById(id);
-        if (existingGame != null){
-            gameRepository.deleteById(id);
-        }
+        gameRepository.deleteById(id);
     }
 }
