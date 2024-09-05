@@ -5,7 +5,6 @@ import com.wilsonromero.game_service_api.controllers.IGameApi;
 import com.wilsonromero.game_service_api.services.IGameService;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -19,7 +18,7 @@ public class GameControllerImpl implements IGameApi {
     }
 
     @Override
-    public ResponseEntity<Game> createGame(@RequestBody Game game) {
+    public ResponseEntity<Game> createGame(Game game) {
         Game newGame = gameService.createGame(game);
         return ResponseEntity.ok(newGame);
     }
