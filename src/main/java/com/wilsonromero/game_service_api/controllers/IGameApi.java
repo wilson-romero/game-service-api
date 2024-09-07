@@ -1,6 +1,7 @@
 package com.wilsonromero.game_service_api.controllers;
 
 import com.wilsonromero.game_service_api.commons.constans.ApiPathVariables;
+import com.wilsonromero.game_service_api.commons.dto.NewGameDTO;
 import com.wilsonromero.game_service_api.commons.entities.Game;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.data.domain.Page;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(ApiPathVariables.V1_ROUTE + ApiPathVariables.GAMES_ROUTE)
 public interface IGameApi {
     @PostMapping
-    ResponseEntity<Game> createGame(@RequestBody Game game);
+    ResponseEntity<Game> createGame(@RequestBody NewGameDTO newGameDTO);
 
     @GetMapping("/{id}")
     ResponseEntity<Game> getGameById(@PathVariable Long id);
@@ -25,7 +26,7 @@ public interface IGameApi {
     );
 
     @PutMapping("/{id}")
-    ResponseEntity<Game> updateGame(@PathVariable Long id, @RequestBody Game game);
+    ResponseEntity<Game> updateGame(@PathVariable Long id, @RequestBody NewGameDTO newGameDTO);
 
     @DeleteMapping("/{id}")
     ResponseEntity<Void> deleteGame(@PathVariable Long id);

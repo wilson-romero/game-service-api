@@ -1,5 +1,6 @@
 package com.wilsonromero.game_service_api.controllers.impl;
 
+import com.wilsonromero.game_service_api.commons.dto.NewGameDTO;
 import com.wilsonromero.game_service_api.commons.entities.Game;
 import com.wilsonromero.game_service_api.controllers.IGameApi;
 import com.wilsonromero.game_service_api.services.IGameService;
@@ -18,8 +19,8 @@ public class GameControllerImpl implements IGameApi {
     }
 
     @Override
-    public ResponseEntity<Game> createGame(Game game) {
-        Game newGame = gameService.createGame(game);
+    public ResponseEntity<Game> createGame(NewGameDTO newGameDTO) {
+        Game newGame = gameService.createGame(newGameDTO);
         return ResponseEntity.ok(newGame);
     }
 
@@ -35,8 +36,8 @@ public class GameControllerImpl implements IGameApi {
     }
 
     @Override
-    public ResponseEntity<Game> updateGame(Long id, Game game) {
-        Game updatedGame = gameService.updateGame(id, game);
+    public ResponseEntity<Game> updateGame(Long id, NewGameDTO newGameDTO) {
+        Game updatedGame = gameService.updateGame(id, newGameDTO);
         return ResponseEntity.ok(updatedGame);
     }
 

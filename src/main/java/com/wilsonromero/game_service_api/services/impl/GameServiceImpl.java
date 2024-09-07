@@ -1,7 +1,9 @@
 package com.wilsonromero.game_service_api.services.impl;
 
+import com.wilsonromero.game_service_api.commons.dto.NewGameDTO;
 import com.wilsonromero.game_service_api.commons.entities.Game;
 import com.wilsonromero.game_service_api.commons.exceptions.GameException;
+import com.wilsonromero.game_service_api.commons.mappers.GameMapper;
 import com.wilsonromero.game_service_api.commons.utils.SortUtils;
 import com.wilsonromero.game_service_api.repositories.GameRepository;
 import com.wilsonromero.game_service_api.services.IGameService;
@@ -19,13 +21,16 @@ import java.util.List;
 public class GameServiceImpl implements IGameService {
 
     private final GameRepository gameRepository;
+    private final GameMapper gameMapper;
 
-    public GameServiceImpl(GameRepository gameRepository) {
+    public GameServiceImpl(GameRepository gameRepository, GameMapper gameMapper) {
         this.gameRepository = gameRepository;
+        this.gameMapper = gameMapper;
     }
 
     @Override
-    public Game createGame(Game game) {
+    public Game createGame(NewGameDTO newGameDTO) {
+        Game game = gameMapper.toGame(newGameDTO);
         return gameRepository.save(game);
     }
 
@@ -46,9 +51,9 @@ public class GameServiceImpl implements IGameService {
     }
 
     @Override
-    public Game updateGame(Long id, Game game) {
+    public Game updateGame(Long id, NewGameDTO newGameDTO) {
         Game existingGame = getGameById(id);
-        existingGame.setName(game.getName());
+        existingGame.setName(newGameDTO.getName());
         return gameRepository.save(existingGame);
     }
 
